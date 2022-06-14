@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class primeNumberAlgo {
     public static void main(String[] args) {
@@ -11,7 +11,12 @@ public class primeNumberAlgo {
         else {
             System.out.println(num + " is  not a prime number.");
         }
-
+        System.out.print("lower?");
+        int low = in.nextInt();
+        System.out.print("higher?");
+        int high = in.nextInt();
+        System.out.println(findPrimeInRange(low, high));
+        System.out.println(findTwinPrimeInRange(low, high));
     }
     public static Boolean checkPrime(int num){
         //check if the input no. is prime or not,and return boolean expression
@@ -24,21 +29,29 @@ public class primeNumberAlgo {
         }
         return rem != 0;
     }
-    /*public static int[] findPrime(int lower, int higher){
-        //find all the prime no. in the range and organize them in a list
-        int[] numLst = new int[higher - lower + 1];
-        int numLstLen = numLst.length;
-        int[] primeLst = new int[1];
-        for (int i = 0; i < numLstLen; i++) {
-            numLst[i] = i + lower;
-        }
-        for (int i = 0; i < numLstLen; i++) {
-            if (checkPrime(numLst[i])) {
-                int newPrimeLst[] = new int[primeLst.length+1];
-                for(int j = 0; j < primeLst.length; j++) {
-                    newPrimeLst[j] = primeLst[j];
+    public static List<Integer> findPrimeInRange(int lower, int higher){
+        //find all the prime no. in the range return a list
+        List<Integer> primeLst = new ArrayList<Integer>();
+        for (int i = lower; i <= higher; i++) {
+            if (checkPrime(i)) {
+                primeLst.add(i);
             }
         }
-        return newPrimeLst;
-    }*/
+        return primeLst;
+    }
+    public static List<Integer> findTwinPrimeInRange (int lower, int higher){
+        // input range, return a list with all twin prime
+        List<Integer> primeLst = findPrimeInRange(lower, higher);
+        List<Integer> twinPrimeLst = new ArrayList<Integer>();
+
+        for (int i = 0; i < primeLst.size()-1; i++){
+            if (primeLst.get(i+1) - primeLst.get(i) == 2){
+                twinPrimeLst.add(primeLst.get(i));
+                twinPrimeLst.add(primeLst.get(i+1));
+            }
+        }
+        return twinPrimeLst;
+
+
+    }
 }
