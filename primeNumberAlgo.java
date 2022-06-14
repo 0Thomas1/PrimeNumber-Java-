@@ -19,7 +19,7 @@ public class primeNumberAlgo {
         System.out.println(findTwinPrimeInRange(low, high));
     }
     public static Boolean checkPrime(int num){
-        //check if the input no. is prime or not,and return boolean expression
+        //check if the input no. is prime or not, and return boolean expression
         int rem = 1;
         if (num <= 1){
             return false;
@@ -44,6 +44,7 @@ public class primeNumberAlgo {
         List<Integer> primeLst = findPrimeInRange(lower, higher);
         List<Integer> twinPrimeLst = new ArrayList<Integer>();
 
+        // iterate the  prime list then put twin primes into the twin prime list
         for (int i = 0; i < primeLst.size()-1; i++){
             if (primeLst.get(i+1) - primeLst.get(i) == 2){
                 twinPrimeLst.add(primeLst.get(i));
