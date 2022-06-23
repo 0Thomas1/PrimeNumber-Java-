@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class primeNumberAlgo {
+public class primeNumAlgo {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.print("Which number do you want to check?");
@@ -17,7 +17,7 @@ public class primeNumberAlgo {
         int high = in.nextInt();
         System.out.println(findPrimeInRange(low, high));
         System.out.println(findTwinPrimeInRange(low, high));
-        System.out.println(findPrimeFactors(77));
+        System.out.println(findPrimeFactors(39));
     }
     public static Boolean checkPrime(int num){
         //check if the input no. is prime or not, and return boolean expression
