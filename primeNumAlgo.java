@@ -22,12 +22,10 @@ public class primeNumAlgo {
     public static Boolean checkPrime(int num){
         //check if the input no. is prime or not, and return boolean expression
         int rem = 1;
-        if (num <= 1){
+        if (num <= 1)
             return false;
-        }
-        for (int i = 2; i <num && rem !=0; i++) {
+        for (int i = 2; (i < (num / 2)) && (rem != 0); i++)
             rem = num % i;
-        }
         return rem != 0;
     }
     public static List<Integer> findPrimeInRange(int lower, int higher){
